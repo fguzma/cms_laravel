@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Post;
 
-class BlogController extends Controller
+class BlogController extends BackendController
 {
+    protected $limit = 10;
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view ('backend.blog');
+        $posts = Post::all();
+        return view("backend.blog.index", compact('posts'));
     }
 
     /**
@@ -24,7 +28,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        dd('create new blog post');
     }
 
     /**

@@ -34,22 +34,39 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($posts as $post)
                                     <tr>
                                         <td>
-                                            <a href="#" class="btn btn-xs btn-default">
+                                            <a href="{{ route('backend.blog.edit', $post->id) }}" class="btn btn-xs btn-default">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href="#" class="btn btn-xs btn-danger">
+                                            <a href="{{ route('backend.blog.destroy', $post->id) }}" class="btn btn-xs btn-danger">
                                                 <i class="fa fa-times"></i>
                                             </a>
                                         </td>
-                                        <td> Loremp ipsum </td>
-                                        <td>Jane Doe</td>
-                                        <td>Web Desing</td>
-                                        <td>18-05-2018</td>
+                                        <td>{{ $post->title }}</td>
+                                        <td>{{ $post->author->name }}</td>
+                                        <td>{{ $post->category->title }}</td>
+                                        <td>{{ $post->created_at }}</td>
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
+                        </div>
+
+                        <div class="box-footer clearfix">
+                            <div class="pull-left">
+                                <ul class="pagination no-margin">
+                                    <li> <a href="#"> &laquo; </a></li>
+                                    <li> <a href="#"> 1 </a></li>
+                                    <li> <a href="#"> 2 </a></li>
+                                    <li> <a href="#"> 3 </a></li>
+                                    <li> <a href="#"> &raquo; </a></li>
+                                </ul>
+                            </div>
+                            <div class="pull-right">
+                                <small>4 items</small>
+                            </div>
                         </div>
                         <!-- /.box-body -->
                     </div>
