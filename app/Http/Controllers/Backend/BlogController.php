@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class BlogController extends BackendController
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class BlogController extends BackendController
      */
     public function index()
     {
-        return view('backend.blog');
+        return view ('backend.blog');
     }
 
     /**
@@ -23,7 +24,7 @@ class BlogController extends BackendController
      */
     public function create()
     {
-        dd('create new blog post');
+        //
     }
 
     /**
